@@ -1,0 +1,160 @@
+/* Event Management — design system (Syne + Outfit) */
+:root {
+  --ems-font: 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ems-font-display: 'Syne', var(--ems-font);
+
+  --ems-ink: #0a0f1a;
+  --ems-text: #0f172a;
+  --ems-text-muted: #64748b;
+
+  --ems-surface: #ffffff;
+  --ems-surface-muted: #f1f5f9;
+  --ems-surface-glass: rgba(255, 255, 255, 0.78);
+
+  --ems-border: rgba(148, 163, 184, 0.45);
+  --ems-border-soft: rgba(226, 232, 240, 0.9);
+
+  /* Brand: deep ocean → cyan */
+  --ems-primary: #0891b2;
+  --ems-primary-deep: #0e7490;
+  --ems-primary-gradient: linear-gradient(
+    125deg,
+    #0c4a6e 0%,
+    #0e7490 38%,
+    #0891b2 72%,
+    #06b6d4 100%
+  );
+  --ems-nav-gradient: linear-gradient(
+    95deg,
+    #0f172a 0%,
+    #134e4a 45%,
+    #164e63 100%
+  );
+  --ems-nav-solid: #0f172a;
+
+  --ems-accent: #0ea5e9;
+  --ems-accent-soft: #e0f2fe;
+  --ems-accent-warm: #f59e0b;
+  --ems-accent-warm-soft: #fffbeb;
+
+  --ems-success: #059669;
+  --ems-success-soft: #ecfdf5;
+  --ems-danger: #dc2626;
+  --ems-danger-soft: #fef2f2;
+
+  --ems-radius: 14px;
+  --ems-radius-sm: 10px;
+  --ems-radius-lg: 18px;
+  --ems-radius-xl: 24px;
+  --ems-radius-pill: 9999px;
+
+  --ems-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --ems-shadow-md: 0 10px 28px rgba(15, 23, 42, 0.09),
+    0 4px 10px rgba(15, 23, 42, 0.04);
+  --ems-shadow-card: 0 24px 56px -20px rgba(15, 23, 42, 0.16),
+    0 12px 24px -16px rgba(15, 23, 42, 0.08);
+  --ems-shadow-glow: 0 8px 32px rgba(8, 145, 178, 0.28);
+
+  --ems-page-bg: radial-gradient(
+      ellipse 90% 70% at 90% -15%,
+      rgba(6, 182, 212, 0.16),
+      transparent 52%
+    ),
+    radial-gradient(
+      ellipse 70% 55% at 5% 105%,
+      rgba(244, 63, 94, 0.07),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 50% 50%,
+      rgba(99, 102, 241, 0.04),
+      transparent 60%
+    ),
+    linear-gradient(168deg, #f0fdfa 0%, #f8fafc 38%, #f1f5f9 100%);
+
+  --ems-focus-ring: 0 0 0 3px rgba(14, 165, 233, 0.28);
+}
+
+body {
+  margin: 0;
+  background: var(--ems-page-bg);
+  background-attachment: fixed;
+  color: var(--ems-text);
+  font-family: var(--ems-font);
+}
+
+#root {
+  font-family: var(--ems-font);
+  color: var(--ems-text);
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100svh;
+}
+
+#root h1 {
+  font-family: var(--ems-font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.5rem;
+  color: var(--ems-text);
+  line-height: 1.2;
+}
+
+#root h2 {
+  font-family: var(--ems-font-display);
+  font-size: 1.1rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+  color: var(--ems-text);
+  line-height: 1.3;
+}
+
+#root p {
+  line-height: 1.55;
+}
+
+::selection {
+  background: rgba(6, 182, 212, 0.22);
+  color: var(--ems-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ems-primary);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline-offset: 3px;
+}
+
+/* Primary CTA — cyan glow */
+#root .login-submit,
+#root .user-dashboard-btn,
+#root .admin-dash-action,
+#root .user-section-header-btn,
+#root .app-button,
+#root .vendor-yours-header-btn,
+#root .vendor-yours-insert {
+  background: var(--ems-primary-gradient);
+  box-shadow: var(--ems-shadow-glow);
+  border: none;
+}
+
+#root .login-submit:hover:not(:disabled),
+#root .user-dashboard-btn:hover,
+#root .admin-dash-action:hover,
+#root .user-section-header-btn:hover,
+#root .app-button:hover,
+#root .vendor-yours-header-btn:hover,
+#root .vendor-yours-insert:hover {
+  filter: brightness(1.06) saturate(1.05);
+  box-shadow: 0 12px 36px rgba(8, 145, 178, 0.38);
+}
+
+#root .user-dashboard-btn--active {
+  filter: brightness(1.1);
+  box-shadow: 0 8px 28px rgba(8, 145, 178, 0.45);
+}
